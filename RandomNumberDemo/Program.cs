@@ -10,7 +10,7 @@ namespace RandomNumberDemo
 
             for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine(random.Next());
+                Console.WriteLine(random.Next(11));
             }
 
             Console.ReadLine();
