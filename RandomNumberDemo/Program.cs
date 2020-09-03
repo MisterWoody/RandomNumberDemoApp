@@ -31,13 +31,21 @@ namespace RandomNumberDemo
 
             };
 
-            var sortedPeople = people.OrderBy(x => x.FirstName);
+            //var sortedPeople = people.OrderBy(x => x.FirstName);
 
-            foreach (var p in sortedPeople)
+            //foreach (var p in sortedPeople)
+            //{
+            //    Console.WriteLine(p.FirstName);
+            //}
+            
+            Console.WriteLine("============================");
+
+            var shuffledPeople = people.OrderBy(x => random.Next());
+
+            foreach (var p in shuffledPeople)
             {
                 Console.WriteLine(p.FirstName);
             }
-
 
             Console.ReadLine();
         }
