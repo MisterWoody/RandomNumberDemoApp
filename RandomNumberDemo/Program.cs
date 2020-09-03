@@ -40,6 +40,9 @@ namespace RandomNumberDemo
             
             Console.WriteLine("============================");
 
+            // The following is not the most performant, but ok for lists of fifty or so objects
+            // For performant shuffles of large datasets - use Fisher-Yates algorithm - see https://stackoverflow.com/questions/273313/randomize-a-listt/1262619#1262619
+
             var shuffledPeople = people.OrderBy(x => random.Next());
 
             foreach (var p in shuffledPeople)
@@ -56,7 +59,7 @@ namespace RandomNumberDemo
         }
     }
 
-    // The following is not the most performant, but ok for lists of fifty or so objects
+    
     public class PersonModel
     {
         public string FirstName { get; set; }
