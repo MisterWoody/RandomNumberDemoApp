@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace RandomNumberDemo
 {
@@ -8,12 +10,34 @@ namespace RandomNumberDemo
         {
             Random random = new Random();
 
-            for (int i = 0; i < 10; i++)
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    //Console.WriteLine(random.Next(5,11)); // set a min and non inclusive max
+
+            //    Console.WriteLine(random.NextDouble() * 10); // get a random double 
+
+            //    //SimpleMethod(random); // Best practice - do this, don't create a new random object each time
+            //}
+
+            List<PersonModel> people = new List<PersonModel>
+            { 
+                new PersonModel {FirstName = "Tim"},
+                new PersonModel {FirstName = "Sue"},
+                new PersonModel {FirstName = "Mary"},
+                new PersonModel {FirstName = "George"},
+                new PersonModel {FirstName = "Jane"},
+                new PersonModel {FirstName = "Nancy"},
+                new PersonModel {FirstName = "Bob"}
+
+            };
+
+            var sortedPeople = people.OrderBy(x => x.FirstName);
+
+            foreach (var p in sortedPeople)
             {
-                //Console.WriteLine(random.Next(5,11));
-                Console.WriteLine(random.NextDouble() * 10);
-                //SimpleMethod(random); // Best practice - do this, don't create a new object each time
+                Console.WriteLine(p.FirstName);
             }
+
 
             Console.ReadLine();
         }
@@ -22,5 +46,11 @@ namespace RandomNumberDemo
         {
             Console.WriteLine(random.Next()); // Beware - do NOT create a new random object here with a seed as that leads to potential security holes,
         }
+    }
+
+    // The following is not the most performant, but ok for lists of fifty or so objects
+    public class PersonModel
+    {
+        public string FirstName { get; set; }
     }
 }
