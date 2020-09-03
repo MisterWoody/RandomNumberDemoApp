@@ -6,7 +6,7 @@ namespace RandomNumberDemo
     {
         static void Main(string[] args)
         {
-            Random random = new Random();
+            Random random = new Random(1);
 
             for (int i = 0; i < 10; i++)
             {
